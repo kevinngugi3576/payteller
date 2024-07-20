@@ -4,7 +4,11 @@ import React from "react";
 import RigthSidebar from "@/components/RigthSidebar";
 
 const Home = () => {
-  const loggedIn = { firstName: "Kevin", lastName: "ngugi", email:"kevinngugi197@gmail.com" };
+  const loggedIn = {
+    firstName: "Kevin",
+    lastName: "ngugi",
+    email: "kevinngugi197@gmail.com",
+  };
   return (
     <section className="home">
       <div className="home-content">
@@ -23,7 +27,11 @@ const Home = () => {
         </header>
         Recent transactions
       </div>
-      <RigthSidebar user={loggedIn} transactions={[]} banks={[{},{}]} />
+      <RigthSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ currentBalance: 45 }, { currentBalance: 50 }]}
+      />
     </section>
   );
 };

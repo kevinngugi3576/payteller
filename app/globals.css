@@ -160,7 +160,7 @@
   }
 
   .profile-details {
-    @apply flex flex-col pt-14 ml-10;
+    @apply flex flex-col pt-24;
   }
 
   .profile-name {
