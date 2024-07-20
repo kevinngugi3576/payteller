@@ -160,7 +160,7 @@
   }
 
   .profile-details {
-    @apply flex flex-col pt-24;
+    @apply flex flex-col pt-14 ml-10;
   }
 
   .profile-name {
@@ -362,7 +362,7 @@
   }
 
   .sidebar-link {
-    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 rounded-lg justify-center xl:justify-start;
+    @apply flex gap-3 items-center py-[4px] md:p-3 2xl:p-4 rounded-full mt-4 justify-center xl:justify-start;
   }
 
   .sidebar-label {
