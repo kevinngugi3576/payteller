@@ -8,6 +8,8 @@ declare type SearchParamProps = {
 // ========================================
 
 declare type SignUpParams = {
+  email: string;
+  password: string;
   firstName: string;
   lastName: string;
   address1: string;
@@ -15,9 +17,7 @@ declare type SignUpParams = {
   state: string;
   postalCode: string;
   dateOfBirth: string;
-  ssn: string;
-  email: string;
-  password: string;
+  // ssn?: string
 };
 
 declare type LoginUser = {
@@ -33,6 +33,7 @@ declare type User = {
   dwollaCustomerId: string;
   firstName: string;
   lastName: string;
+  name: string;
   address1: string;
   city: string;
   state: string;
@@ -51,7 +52,7 @@ declare type NewUserParams = {
 declare type Account = {
   id: string;
   availableBalance: number;
-  currentBalance: number;
+  currentBalance?: number;
   officialName: string;
   mask: string;
   institutionId: string;
@@ -59,6 +60,14 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
+  sharableId: string;
+
+  //added cause totla balamce missing these properties below!
+  accountId: string;
+  bankId: string;
+  accessToken: string;
+  fundingSourceUrl: string;
+  userId: string;
   sharableId: string;
 };
 
@@ -89,6 +98,7 @@ declare type Bank = {
   fundingSourceUrl: string;
   userId: string;
   sharableId: string;
+  //added this property to match the Account type
 };
 
 declare type AccountTypes =
@@ -210,6 +220,7 @@ declare interface TotlaBalanceBoxProps {
 
 declare interface FooterProps {
   user: User;
+  type?: "mobile" | "desktop";
 }
 
 declare interface RightSidebarProps {

@@ -15,12 +15,10 @@ const TotalBalance = ({
       <div className="flex flex-col gap-6">
         <DoughnutChart accounts={accounts} />
         <h2 className="text-18 font-semibold text-gray-900">
-          {totalBanks} Bank Account
+          Bank Account {totalBanks}
         </h2>
         <div className="flex flex-row gap-3">
-          <p
-            className="text-lg font-large text-black text-bold"
-          >
+          <p className="text-lg font-large text-black text-bold">
             total current balance:{" "}
           </p>
           <div className="text-sm lg:text-xl  font-semibold text-gray-90 flex-center gap-2">

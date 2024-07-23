@@ -1,11 +1,11 @@
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import HeaderBox from "@/components/HeaderBox";
 import React from "react";
-import RigthSidebar from "@/components/RightSidebar";
+import RightSidebar from "@/components/RightSidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 
-const Home = async() => {
-  const loggedIn = getLoggedInUser()
+const Home = async () => {
+  const loggedIn = await getLoggedInUser()
   return (
     <section className="home">
       <div className="home-content">
@@ -24,7 +24,7 @@ const Home = async() => {
         </header>
         Recent transactions
       </div>
-      <RigthSidebar
+      <RightSidebar
         user={loggedIn}
         transactions={[]}
         banks={[{ currentBalance: 45 }, { currentBalance: 50 }]}
