@@ -3,6 +3,7 @@ import HeaderBox from "@/components/HeaderBox";
 import React from "react";
 import RightSidebar from "@/components/RightSidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
+import TransactionsTable from "@/components/TransactionsTable";
 
 const Home = async () => {
   const loggedIn = await getLoggedInUser()
@@ -23,6 +24,7 @@ const Home = async () => {
           />
         </header>
         Recent transactions
+        <TransactionsTable transactions = {transactions} />
       </div>
       <RightSidebar
         user={loggedIn}
