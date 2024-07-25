@@ -34,16 +34,32 @@ const AuthForm = ({ type }: { type: string }) => {
 
     try {
       if (type === "sign-up") {
-        const newUser = await SignUp(data);
-        setUser(newUser);
-      }
-      if (type === "sign-in") {
-        const response = await SignIn({
+        const newUser = await SignUp({
           email: data.email,
           password: data.password,
+          firstName: data.firstname,
+          lastName: data.lastname,
+          // other fields if necessary
         });
-        if (response) {
+        setUser(newUser);
+        if (newUser) {
           router.push("/");
+        }
+      }
+      if (type === "sign-in") {
+        if (
+          typeof data.email === "string" &&
+          typeof data.password === "string"
+        ) {
+          const response = await SignIn({
+            email: data.email,
+            password: data.password,
+          });
+          if (response) {
+            router.push("/");
+          }
+        } else {
+          console.error("Invalid email or password format");
         }
       }
       console.log(data);

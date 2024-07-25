@@ -21,34 +21,6 @@ export const sidebarLinks = [
   },
 ];
 
-// good_user / good_password - Bank of America
-export const TEST_USER_ID = "6627ed3d00267aa6fa3e";
-
-// custom_user -> Chase Bank
-// export const TEST_ACCESS_TOKEN =
-//   "access-sandbox-da44dac8-7d31-4f66-ab36-2238d63a3017";
-
-// custom_user -> Chase Bank
-export const TEST_ACCESS_TOKEN =
-  "access-sandbox-229476cf-25bc-46d2-9ed5-fba9df7a5d63";
-
-export const ITEMS = [
-  {
-    id: "6624c02e00367128945e", // appwrite item Id
-    accessToken: "access-sandbox-83fd9200-0165-4ef8-afde-65744b9d1548",
-    itemId: "VPMQJKG5vASvpX8B6JK3HmXkZlAyplhW3r9xm",
-    userId: "6627ed3d00267aa6fa3e",
-    accountId: "X7LMJkE5vnskJBxwPeXaUWDBxAyZXwi9DNEWJ",
-  },
-  {
-    id: "6627f07b00348f242ea9", // appwrite item Id
-    accessToken: "access-sandbox-74d49e15-fc3b-4d10-a5e7-be4ddae05b30",
-    itemId: "Wv7P6vNXRXiMkoKWPzeZS9Zm5JGWdXulLRNBq",
-    userId: "6627ed3d00267aa6fa3e",
-    accountId: "x1GQb1lDrDHWX4BwkqQbI4qpQP1lL6tJ3VVo9",
-  },
-];
-
 export const topCategoryStyles = {
   "Food and Drink": {
     bg: "bg-blue-25",
@@ -92,40 +64,47 @@ export const topCategoryStyles = {
 };
 
 export const transactionCategoryStyles = {
-  "Food and Drink": {
+  Shopping: {
     borderColor: "border-pink-600",
     backgroundColor: "bg-pink-500",
     textColor: "text-pink-700",
     chipBackgroundColor: "bg-inherit",
   },
-  Payment: {
+  Transport: {
     borderColor: "border-success-600",
     backgroundColor: "bg-green-600",
     textColor: "text-success-700",
     chipBackgroundColor: "bg-inherit",
   },
-  "Bank Fees": {
+  "Food & Drink": {
     borderColor: "border-success-600",
     backgroundColor: "bg-green-600",
     textColor: "text-success-700",
     chipBackgroundColor: "bg-inherit",
   },
-  Transfer: {
+  Income: {
     borderColor: "border-red-700",
     backgroundColor: "bg-red-700",
     textColor: "text-red-700",
     chipBackgroundColor: "bg-inherit",
   },
-  Processing: {
+  Utilities: {
     borderColor: "border-[#F2F4F7]",
     backgroundColor: "bg-gray-500",
     textColor: "text-[#344054]",
     chipBackgroundColor: "bg-[#F2F4F7]",
   },
-  Success: {
+  shoppings: {
     borderColor: "border-[#12B76A]",
     backgroundColor: "bg-[#12B76A]",
     textColor: "text-[#027A48]",
+    chipBackgroundColor: "bg-[#ECFDF3]",
+  },
+
+  StayCation: {
+    borderColor: "border-[#0047AB]",
+    backgroundColor: "bg-[#12B76A]",
+    textColor: "text-blue-700",
     chipBackgroundColor: "bg-[#ECFDF3]",
   },
   default: {
@@ -135,3 +114,150 @@ export const transactionCategoryStyles = {
     chipBackgroundColor: "bg-inherit",
   },
 };
+
+export const transactions: Transaction[] = [
+  {
+    id: "1",
+    $id: "1",
+    name: "Purchase at Nakumatt",
+    paymentChannel: "Online",
+    type: "debit",
+    accountId: "acc1",
+    amount: 5000,
+    pending: false,
+    category: "Shopping",
+    date: "2024-07-24T14:48:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-24T14:48:00.000Z",
+    channel: "Online",
+    senderBankId: "KCB001",
+    receiverBankId: "KCB002",
+    curency: "KES",
+  },
+  {
+    id: "2",
+    $id: "2",
+    name: "Fuel at Total",
+    paymentChannel: "POS",
+    type: "debit",
+    accountId: "acc2",
+    amount: 3000,
+    pending: false,
+    category: "Transport",
+    date: "2024-07-23T10:15:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-23T10:15:00.000Z",
+    channel: "POS",
+    senderBankId: "Equity001",
+    receiverBankId: "Equity002",
+    curency: "KES",
+  },
+  {
+    id: "3",
+    $id: "3",
+    name: "Lunch at Java House",
+    paymentChannel: "POS",
+    type: "debit",
+    accountId: "acc3",
+    amount: 1500,
+    pending: true,
+    category: "Food & Drink",
+    date: "2024-07-22T13:30:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-22T13:30:00.000Z",
+    channel: "POS",
+    senderBankId: "Coop001",
+    receiverBankId: "Coop002",
+    curency: "KES",
+  },
+  {
+    id: "4",
+    $id: "4",
+    name: "Payment from Safaricom",
+    paymentChannel: "M-PESA",
+    type: "credit",
+    accountId: "acc4",
+    amount: 10000,
+    pending: false,
+    category: "Income",
+    date: "2024-07-21T09:00:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-21T09:00:00.000Z",
+    channel: "M-PESA",
+    senderBankId: "M-PESA001",
+    receiverBankId: "KCB003",
+    curency: "KES",
+  },
+  {
+    id: "5",
+    $id: "5",
+    name: "Payment to KPLC",
+    paymentChannel: "Online",
+    type: "debit",
+    accountId: "acc5",
+    amount: 2500,
+    pending: true,
+    category: "Bills & Utilities",
+    date: "2024-07-20T14:00:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-20T14:00:00.000Z",
+    channel: "Online",
+    senderBankId: "KCB004",
+    receiverBankId: "KCB005",
+    curency: "KES",
+  },
+  {
+    id: "6",
+    $id: "6",
+    name: "Payment to Naivas",
+    paymentChannel: "Online",
+    type: "debit",
+    accountId: "acc5",
+    amount: 25000,
+    pending: true,
+    category: "shoppings",
+    date: "2024-07-20T14:00:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-20T14:00:00.000Z",
+    channel: "Online",
+    senderBankId: "KCB004",
+    receiverBankId: "KCB005",
+    curency: "KES",
+  },
+  {
+    id: "7",
+    $id: "7",
+    name: "Payment to Villa Rosa Kempisnski",
+    paymentChannel: "Online",
+    type: "debit",
+    accountId: "acc5",
+    amount: 33000,
+    pending: true,
+    category: "StayCation",
+    date: "2024-07-20T14:00:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-20T14:00:00.000Z",
+    channel: "Online",
+    senderBankId: "KCB004",
+    receiverBankId: "KCB005",
+    curency: "KES",
+  },
+  {
+    id: "8",
+    $id: "8",
+    name: "Payment to Raddison Blue",
+    paymentChannel: "Online",
+    type: "debit",
+    accountId: "acc5",
+    amount: 15000,
+    pending: true,
+    category: "StayCation",
+    date: "2024-07-20T14:00:00.000Z",
+    image: "image_url",
+    $createdAt: "2024-07-20T14:00:00.000Z",
+    channel: "Online",
+    senderBankId: "KCB004",
+    receiverBankId: "KCB005",
+    curency: "KES",
+  },
+];

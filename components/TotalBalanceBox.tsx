@@ -10,18 +10,18 @@ const TotalBalance = ({
   totalCurrentBalance,
 }: TotlaBalanceBoxProps) => {
   return (
-    <section className="flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6">
+    <section className="flex items-center w-full gap-4 p-4 border border-gray-200 rounded-xl shadow-chart sm:gap-6 sm:p-6">
       <div className="flex size-full max-w-[100px] items-center sm:max-w-[120px]"></div>
       <div className="flex flex-col gap-6">
         <DoughnutChart accounts={accounts} />
-        <h2 className="text-18 font-semibold text-gray-900">
+        <h2 className="font-semibold text-gray-900 text-18">
           Bank Account {totalBanks}
         </h2>
         <div className="flex flex-row gap-3">
-          <p className="text-lg font-large text-black text-bold">
-            total current balance:{" "}
+          <p className="text-lg text-black font-large text-bold">
+            Total current balance:{" "}
           </p>
-          <div className="text-sm lg:text-xl  font-semibold text-gray-90 flex-center gap-2">
+          <div className="gap-2 text-lg font-bold mb-4  text-white bg-purple-800 rounded-full lg:text-2xl text-gray-90 flex-center  p-[6px]">
             <AnimatedCounter amount={totalCurrentBalance} />
           </div>
         </div>

@@ -16,7 +16,7 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
   return (
     <footer className="footer">
       <div className={type === "mobile" ? "footer_name_mobile" : "footer_name"}>
-        <p className="text-xl font-old text-gray-700">{user.name}</p>
+        <p className="text-xl text-gray-700 font-old">{user.name}</p>
       </div>
 
       <div
@@ -25,7 +25,7 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
         <h1 className="font-bold text-gray-800 truncate text-14">
           {user.name}
         </h1>
-        <p className="text-gray-600 truncate text-14 font-bold">{user.email}</p>
+        <p className="font-bold text-gray-600 truncate text-14">{user.email}</p>
       </div>
       <div className="footer_image" onClick={HandleLogOut}>
         <Image src="/icons/logout.svg " alt="jsm" fill />

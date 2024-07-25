@@ -9,11 +9,27 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
+  cn,
   formatAmount,
   formatDateTime,
   getTransactionStatus,
   removeSpecialCharacters,
 } from "@/lib/utils";
+import { transactionCategoryStyles } from "@/constants";
+
+const CategoryProps = ({ category }: CategoryBadgeProps) => {
+  const { borderColor, backgroundColor, textColor, chipBackgroundColor } =
+    transactionCategoryStyles[
+      category as keyof typeof transactionCategoryStyles
+    ] || transactionCategoryStyles.default;
+
+  return (
+    <div className={cn(`category-badge`, borderColor, chipBackgroundColor)}>
+      <div className={cn("size-2 rounded-full", backgroundColor)}></div>
+      <p className={cn(`text-[12px] font-medium `, textColor)}>{category}</p>
+    </div>
+  );
+};
 
 const TransactionsTable = ({ transactions }: TransactionTableProps) => {
   return (
@@ -31,7 +47,7 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
       <TableBody>
         {transactions.map((t: Transaction) => {
           const status = getTransactionStatus(new Date(t.date));
-          const amount = formatAmount(t.amount);
+          const amount = t.amount;
 
           const isDebit = t.type === "debit";
           const isCredit = t.type === "credit";
@@ -39,9 +55,7 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
             <TableRow
               key={t.id}
               className={` ${
-                isDebit || amount[0] === "-"
-                  ? `bg-[#FFFBFA]`
-                  : `bg-[#F6FEF9] !border-b-DEFAULT`
+                isDebit ? `bg-[#FFFBFA]` : `bg-[#F6FEF9] !border-b-DEFAULT`
               } }`}
             >
               <TableCell>
@@ -53,19 +67,20 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
               </TableCell>
               <TableCell
                 className={`pl-2 pr-10 font-bold  ${
-                  isDebit || amount[0] === "-"
-                    ? `text-[#f04438]`
-                    : `text-[#039855]`
+                  isDebit ? `text-[#f04438]` : `text-[#039855]`
                 }`}
               >
-                {isDebit ? `- ${amount}` : isCredit ? ` amount` : `amount`}
+                {t.curency}{" "}
+                {isDebit ? `-${amount}` : isCredit ? amount : amount}
               </TableCell>
-              <TableCell className="pl-2 pr-10">{status}</TableCell>
+              <TableCell className="pl-2 pr-10"></TableCell>
               <TableCell className="pl-2 pr-10 min-w-32 ">
-                {formatDateTime(new Date(t.date)).dateTime} 
+                {formatDateTime(new Date(t.date)).dateTime}
               </TableCell>
               <TableCell className="pl-2 pr-10">{t.paymentChannel}</TableCell>
-              <TableCell className="pl-2 pr-10 max-md:hidden">{t.category}</TableCell>
+              <TableCell className="pl-2 pr-10 max-md:hidden">
+                <CategoryProps category={t.category} />
+              </TableCell>
             </TableRow>
           );
         })}{" "}
