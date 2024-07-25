@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import BankCard from "./BankCard";
 
-const RigthSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
+const RightSidebar = ({ user, banks }: RightSidebarProps) => {
 
   return (
     <aside className="mt-1 right-sidebar">
@@ -38,7 +38,7 @@ const RigthSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.name} ${user.name}`}
+                userName={`${user.name} ${user.name}` }
                 showBalance={false}
               />
             </div>
@@ -46,7 +46,7 @@ const RigthSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               <div className="absolute right-0 top-8 z-0 w-[90%]">
                 <BankCard
                   key={banks[1].$id}
-                  account={banks[2]}
+                  account={banks[1]}
                   userName={`${user.firstName} ${user.lastName}`}
                   showBalance={false}
                 />{" "}
@@ -59,4 +59,4 @@ const RigthSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
   );
 };
 
-export default RigthSidebar;
+export default RightSidebar;

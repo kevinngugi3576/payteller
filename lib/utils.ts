@@ -198,15 +198,59 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) =>
   z.object({
     email:
-      type === "sign-in" ? z.string().email().max(50) : z.string().optional(),
+      type === "sign-in"
+        ? z
+            .string()
+            .email("Invalid email format.")
+            .max(50, "Email cannot exceed 50 characters.")
+        : z.string().optional(),
+
     password:
-      type === "sign-in" ? z.string().min(6).max(80) : z.string().optional(),
-    firstname: type === "sign-up" ? z.string().min(3) : z.string().optional(),
-    lastname: type === "sign-up" ? z.string().min(3) : z.string().optional(),
-    city: type === "sign-up" ? z.string().max(50) : z.string().optional(),
-    address1: type === "sign-up" ? z.string().max(50) : z.string().optional(),
-    state: type === "sign-up" ? z.string().max(50) : z.string().optional(),
-    postalCode: type === "sign-up" ? z.string().max(20) : z.string().optional(),
+      type === "sign-in"
+        ? z
+            .string()
+            .min(6, "Password must be at least 6 characters long.")
+            .max(80, "Password cannot exceed 80 characters.")
+        : z.string().optional(),
+
+    firstname:
+      type === "sign-up"
+        ? z
+            .string()
+            .min(3, "First name must be at least 3 characters long.")
+            .max(50, "First name cannot exceed 50 characters.")
+        : z.string().optional(),
+
+    lastname:
+      type === "sign-up"
+        ? z
+            .string()
+            .min(3, "Last name must be at least 3 characters long.")
+            .max(50, "Last name cannot exceed 50 characters.")
+        : z.string().optional(),
+
+    city:
+      type === "sign-up"
+        ? z.string().max(50, "City cannot exceed 50 characters.")
+        : z.string().optional(),
+
+    address1:
+      type === "sign-up"
+        ? z.string().max(50, "Address cannot exceed 50 characters.")
+        : z.string().optional(),
+
+    state:
+      type === "sign-up"
+        ? z.string().max(50, "State cannot exceed 50 characters.")
+        : z.string().optional(),
+
+    postalCode:
+      type === "sign-up"
+        ? z.string().max(20, "Postal code cannot exceed 20 characters.")
+        : z.string().optional(),
+
     DateOfBirth:
-      type === "sign-up" ? z.string().max(20) : z.string().optional(),
+      type === "sign-up"
+        ? z.string().max(20, "Date of Birth cannot exceed 20 characters.")
+        : z.string().optional(),
   });

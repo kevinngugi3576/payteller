@@ -17,7 +17,6 @@ declare type SignUpParams = {
   state: string;
   postalCode: string;
   dateOfBirth: string;
-  // ssn?: string
 };
 
 declare type LoginUser = {
@@ -52,7 +51,7 @@ declare type NewUserParams = {
 declare type Account = {
   id: string;
   availableBalance: number;
-  currentBalance?: number;
+  currentBalance: number;
   officialName: string;
   mask: string;
   institutionId: string;
@@ -62,13 +61,25 @@ declare type Account = {
   appwriteItemId: string;
   sharableId: string;
 
-  //added cause totla balamce missing these properties below!
+  //added cause total balance missing these properties below!
   accountId: string;
   bankId: string;
   accessToken: string;
   fundingSourceUrl: string;
   userId: string;
   sharableId: string;
+};
+
+declare type Bank = {
+  $id: string;
+  accountId: string;
+  bankId: string;
+  accessToken: string;
+  fundingSourceUrl: string;
+  userId: string;
+  sharableId: string;
+  currentBalance?: number;
+  //added this property to match the Account type
 };
 
 declare type Transaction = {
@@ -88,17 +99,7 @@ declare type Transaction = {
   channel: string;
   senderBankId: string;
   receiverBankId: string;
-};
-
-declare type Bank = {
-  $id: string;
-  accountId: string;
-  bankId: string;
-  accessToken: string;
-  fundingSourceUrl: string;
-  userId: string;
-  sharableId: string;
-  //added this property to match the Account type
+  curency: string;
 };
 
 declare type AccountTypes =

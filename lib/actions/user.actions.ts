@@ -12,8 +12,10 @@ export const SignIn = async ({ email, password }: signInProps) => {
     return parseStringify(response);
   } catch (error) {
     console.error("Error during form submission:", error);
+    return null; // Return null or any other appropriate value in case of an error
   }
 };
+
 
 export const SignUp = async (userData: SignUpParams) => {
   const { email, password, firstName, lastName } = userData;
@@ -37,8 +39,10 @@ export const SignUp = async (userData: SignUpParams) => {
     return parseStringify(newUserAccount);
   } catch (error) {
     console.log("Error during form submission:", error);
+    return null; // Return null or an appropriate value in case of an error
   }
 };
+
 
 // ... your initilization functions
 

@@ -20,7 +20,6 @@ type CustomInputProps = {
 };
 
 const CustomInput = ({ control, name, label, placeholder }: CustomInputProps) => {
-  const uniqueId = `${name}-form-item`;
 
   return (
     <FormField
@@ -28,20 +27,19 @@ const CustomInput = ({ control, name, label, placeholder }: CustomInputProps) =>
       name={name}
       render={({ field }) => (
         <div className="form-item">
-          <FormLabel htmlFor={uniqueId} className="form-label">
+          <FormLabel  className="form-label">
             {label}
           </FormLabel>
           <div className="flex flex-col w-full">
             <FormControl>
               <Input
-                id={uniqueId}
                 placeholder={placeholder}
                 className="input-class"
                 type={name === "password" ? "password" : "text"}
                 {...field}
               />
             </FormControl>
-            <FormMessage id={`${uniqueId}-message`} className="mt-2 form-message" />
+            <FormMessage className="mt-2 form-message" />
           </div>
         </div>
       )}
