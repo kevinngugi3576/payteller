@@ -58,6 +58,10 @@ const AuthForm = ({ type }: { type: string }) => {
           if (response) {
             router.push("/");
           }
+          if(!response){
+            router.push("/sign-up")
+          }
+          
         } else {
           console.error("Invalid email or password format");
         }
