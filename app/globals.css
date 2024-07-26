@@ -229,7 +229,7 @@
 
   /* Category Badge */
   .category-badge {
-    @apply flex-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
+    @apply flex-center truncate w-fit  gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
   }
 
   .banktab-item {
