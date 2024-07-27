@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef, useState, Suspense } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -9,21 +10,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const childrenRef = useRef(null);
+  const childrenRef = useRef<HTMLDivElement | null>(null); // Explicit type for TypeScript
   const [loading, setLoading] = useState(true);
 
+  // Set loading state to false after 1 second
   useEffect(() => {
-    gsap.fromTo(
-      childrenRef.current,
-      { opacity: 0, y: -100 },
-      { opacity: 1, y: 0, duration: 1.5, delay: 0, ease: "power3.out" }
-    );
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
 
     return () => clearTimeout(timer); // Clean up the timer
   }, []);
+
+  // Run GSAP animation once loading is false
+  useEffect(() => {
+    if (!loading && childrenRef.current) {
+      gsap.fromTo(
+        childrenRef.current,
+        { opacity: 0, y: -100 },
+        { opacity: 1, y: 0, duration: 3.5, delay:0, ease: "power3.out" }
+      );
+    }
+  }, [loading]);
 
   return (
     <Suspense fallback={<Landing />}>
