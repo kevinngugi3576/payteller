@@ -16,7 +16,8 @@ const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
   };
 
   return (
-    <Doughnut
+    <div className="flex justify-center size-60">
+ <Doughnut
       data={data}
       options={{
         cutout: "60%",
@@ -27,6 +28,9 @@ const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
         },
       }}
     />
+
+    </div>
+   
   );
 };
 

@@ -8,13 +8,21 @@ const Footer = ({ user, type }: FooterProps) => {
   const router = useRouter();
 
   const HandleLogOut = async () => {
-    const loggedOut = await LogoutAccount();
-    if (loggedOut) {
-      router.push("/sign-in");
+    try {
+      const success = await LogoutAccount();
+      if (success) {
+        router.push("/");
+      } else {
+        console.error("Logout failed");
+        // Optionally, show a notification or alert to the user
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+      // Optionally, show a notification or alert to the user
     }
   };
   return (
-    <footer className=" footer">
+    <footer className="mb-8 footer">
       <div className={type === "mobile" ? "footer_name_mobile" : "footer_name"}>
         {/* <p className="text-xl text-gray-700 font-old">{user.name}</p> */}
       </div>
@@ -27,8 +35,9 @@ const Footer = ({ user, type }: FooterProps) => {
         </h1>
         <p className="font-bold text-gray-600 truncate text-14">{user.email}</p>
       </div>
-      <div className="footer_image" onClick={HandleLogOut}>
-        <Image src="/icons/logout2.png " alt="logout"  width={64} height={64}  />
+      <div className="mt-8 ml-8" onClick={HandleLogOut}>
+        <Image src="/icons/logout2.png " alt="logout"  width={34} height={34} className="rounded-full"  />
+        {/* <p className="font-bold border-2 border-purple-800 rounded-full  p-[5px] max-xl:hidden">LOGOUT</p> */}
       </div>
     </footer>
   );
