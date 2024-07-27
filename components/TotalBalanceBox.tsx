@@ -21,7 +21,7 @@ const TotalBalance = ({
           <p className="text-lg text-black font-large text-bold">
             Total current balance:{" "}
           </p>
-          <div className="gap-2 text-lg font-bold mb-4  text-white bg-purple-800 rounded-full lg:text-2xl text-gray-90 flex-center  p-[6px]">
+          <div className="gap-2 text-lg font-bold   text-white bg-purple-800 rounded-full lg:text-2xl text-gray-90 flex-center  p-[6px]">
             <AnimatedCounter amount={totalCurrentBalance} />
           </div>
         </div>

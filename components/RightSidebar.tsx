@@ -4,6 +4,9 @@ import Image from "next/image";
 import BankCard from "./BankCard";
 
 const RightSidebar = ({ user, banks }: RightSidebarProps) => {
+  if (!user || !user.name) {
+    return <div>Loading...</div>; // Handle loading or error state appropriately
+  }
 
   return (
     <aside className="mt-1 right-sidebar">
@@ -11,11 +14,11 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
         <div className="profile-banner " />
         <div className="mt-12 profile-img">
           <span className="text-5xl font-bold text-blue-500 ">
-            {user?.name[0]}
+            {user.name[0]}
           </span>
         </div>
         <div className="mt-8 profile-details">
-          <h1 className="ml-8 text-4xl text-bold fo">{user.name} </h1>
+          <h1 className="ml-8 text-4xl  font-bold">{user.name} </h1>
           <p className="ml-8 profile-email">{user.email}</p>
         </div>
       </section>
@@ -32,13 +35,13 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
             <h2 className="font-semibold text-14 gray-gray-600">Add Bank</h2>
           </Link>
         </div>
-        {banks?.length  && (
+        {banks?.length && (
           <div className="relative flex flex-col items-center justify-center gap-5 ">
             <div className="relative z -10">
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.name}` }
+                userName={`${user.name}`}
                 showBalance={false}
               />
             </div>

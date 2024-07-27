@@ -28,8 +28,6 @@ declare type User = {
   $id: string;
   email: string;
   userId: string;
-  dwollaCustomerUrl: string;
-  dwollaCustomerId: string;
   firstName: string;
   lastName: string;
   name: string;
@@ -38,7 +36,6 @@ declare type User = {
   state: string;
   postalCode: string;
   dateOfBirth: string;
-  ssn: string;
 };
 
 declare type NewUserParams = {
