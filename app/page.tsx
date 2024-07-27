@@ -4,6 +4,7 @@ import Landing from "@/components/Landing";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
@@ -31,114 +32,132 @@ export default function LandingPage() {
       {loading ? (
         <Landing />
       ) : (
-        <div className="min-h-screen bg-white ">
+        <div className="">
           {/* Header */}
-          <header className="fixed flex items-center w-full backdrop-blur-xl">
-            <div className="flex w-1/3 px-4 py-6">
-              <Image
-                src="/icons/logo.svg"
-                width={34}
-                height={34}
-                alt="log app"
-              />
-              <h1 className="text-2xl font-bold">Payteller</h1>
-            </div>
-            <div className="w-1/2 ">
-              <nav className="space-x-4  font-bold rounded-full   text-xl text-black-1 p-[8px]">
-                <a href="#features" className=" hover:text-gray-800">
-                  Features
-                </a>
-                <a href="#pricing" className=" hover:text-gray-800">
-                  Pricing
-                </a>
-                <a href="#testimonials" className="">
-                  Testimonials
-                </a>
-                <a href="#faq" className=" hover:text-gray-800">
-                  FAQ
-                </a>
-              </nav>
-            </div>
+          <div className="relative">
+            <video
+              width="2000"
+              height="2000"
+              autoPlay
+              muted
+              loop
+              preload="none"
+              className="absolute top-0 left-0 object-cover "
+            >
+              <source src="/videos/landingPage2.mp4" type="video/mp4" />
+            </video>
+            <header className="fixed z-30 flex items-center w-full backdrop-blur-xl">
+              <div className="flex w-1/3 px-4 py-6">
+                <Image
+                  src="/icons/logo.svg"
+                  width={34}
+                  height={34}
+                  alt="log app"
+                />
+                <h1 className="text-2xl font-bold">Payteller</h1>
+              </div>
+              <div className="w-1/2 ">
+                <nav className="space-x-4  font-bold rounded-full   text-xl  p-[8px]">
+                  <Link href="#features" className=" hover:text-gray-800">
+                    Features
+                  </Link>
+                  <Link href="#pricing" className=" hover:text-gray-800">
+                    Pricing
+                  </Link>
+                  <Link href="#testimonials" className="">
+                    Testimonials
+                  </Link>
+                  <Link href="#faq" className=" hover:text-gray-800">
+                    FAQ
+                  </Link>
+                </nav>
+              </div>
 
-            <div className="hidden ml-9 md:block ">
-              
-              <button
-                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl"
-                onClick={handleLoginClick}
-              >
-                Sign in
-              </button>
-            </div>
-          </header>
-
-          {/* Hero Section */}
-          <section className="py-48 ">
-            <div className="container mx-auto text-center">
-              <h2 className="mb-4 text-6xl font-bold ">Welcome to Payteller</h2>
-              <p className="mb-8 font-bold">
-                The number one payment solution for your business
-              </p>
-              <Suspense fallback={<Landing />}>
+              <div className="hidden ml-9 md:block ">
                 <button
                   className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl"
-                  onClick={handleGetStartedClick}
+                  onClick={handleLoginClick}
                 >
-                  Get started here!
+                  Sign in
                 </button>
-              </Suspense>
-              <button className="px-8 py-3 ml-4 text-blue-600 bg-gray-200 rounded hover:bg-gray-300">
-                Use this template
-              </button>
-            </div>
-          </section>
-
-          {/* Features Section */}
-          <section id="features" className="py-20">
-            <div className="container mx-auto text-center">
-              <h2 className="mb-8 text-3xl font-bold">
-                Why choose our service?
-              </h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {[
-                  {
-                    title: "Easy to use",
-                    description:
-                      "Id laborum laboris duis nostrud excepteur ut velit nulla magna Lorem proident non.",
-                  },
-                  {
-                    title: "Reliable",
-                    description:
-                      "Magna Lorem ex cillum fugiat ad enim aute irure sit duis minim.",
-                  },
-                  {
-                    title: "Secure",
-                    description:
-                      "Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.",
-                  },
-                  {
-                    title: "Fast",
-                    description:
-                      "Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod sint aliquip nisi voluptate.",
-                  },
-                  {
-                    title: "Affordable",
-                    description:
-                      "Reprehenderit fugiat elit in do ipsum ut pariatur.",
-                  },
-                  {
-                    title: "Scalable",
-                    description:
-                      "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
-                  },
-                ].map((feature, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
-                    <h3 className="mb-4 text-2xl font-bold">{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                ))}
               </div>
+            </header>
+            I{/* Hero Section */}
+            <div className="">
+              <section className="relative z-20 mt-48  
+              ">
+                <div className="text-center  bg-gray-100  bg-transparent 	">
+                  <h2 className="mb-4 text-9xl text-white	 font-bold ">
+                    Welcome to Payteller
+                  </h2>
+                  <p className="mb-8 text-6xl text-purple-600 font-bold">
+                    The number one payment solution for your business
+                  </p>
+                  <button
+                    className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
+                    onClick={handleGetStartedClick}
+                  >
+                    Get started here!
+                  </button>
+                </div>
+              </section>
             </div>
-          </section>
+          </div>
+ 
+          {/* Features Section */}
+          <div className=" relative z-10 mt-96 py-16">
+            <section id="features" className=" ">
+              <div className="container mx-auto text-center">
+                <h2 className="mb-8 text-3xl font-bold">
+                  Why choose our service?
+                </h2>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                  {[
+                    {
+                      title: "Easy to use",
+                      description:
+                        "Id laborum laboris duis nostrud excepteur ut velit nulla magna Lorem proident non.",
+                    },
+                    {
+                      title: "Reliable",
+                      description:
+                        "Magna Lorem ex cillum fugiat ad enim aute irure sit duis minim.",
+                    },
+                    {
+                      title: "Secure",
+                      description:
+                        "Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.",
+                    },
+                    {
+                      title: "Fast",
+                      description:
+                        "Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod sint aliquip nisi voluptate.",
+                    },
+                    {
+                      title: "Affordable",
+                      description:
+                        "Reprehenderit fugiat elit in do ipsum ut pariatur.",
+                    },
+                    {
+                      title: "Scalable",
+                      description:
+                        "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
+                    },
+                  ].map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 bg-white rounded-lg shadow-lg"
+                    >
+                      <h3 className="mb-4 text-2xl font-bold">
+                        {feature.title}
+                      </h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
 
           {/* Pricing Section */}
           <section id="pricing" className="py-20 bg-gray-200">
@@ -204,7 +223,7 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-
+          {/* 
           {/* Testimonials Section */}
           <section id="testimonials" className="py-20">
             <div className="container mx-auto text-center">
