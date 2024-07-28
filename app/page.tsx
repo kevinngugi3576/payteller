@@ -8,7 +8,8 @@ import Link from "next/link";
 import { Faqs, featuresData, Plans, Testimonials } from "@/constants";
 import { BentoGrids } from "@/components/BentoGrid";
 import { Globe } from "@/components/Globe";
-import  { LogoCarouselPage } from "@/components/Companies";
+import { LogoCarouselPage } from "@/components/Companies";
+import { TestimonialsGrid } from "@/components/TestimonialsGrid";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
@@ -109,11 +110,9 @@ export default function LandingPage() {
               <Globe />
             </div>
             <div className="">
-            <LogoCarouselPage />
-          </div>
+              <LogoCarouselPage />
+            </div>
           </section>
-
-          
 
           {/* Features Section */}
           <section id="features" className="mb-16">
@@ -156,14 +155,8 @@ export default function LandingPage() {
               <h2 className="mb-8 text-3xl font-bold">
                 What our customers are saying
               </h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {Testimonials.map((testimonial, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
-                    <p className="mb-4">{testimonial.feedback}</p>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}</p>
-                  </div>
-                ))}
+              <div className="">
+                <TestimonialsGrid />
               </div>
             </div>
           </section>
