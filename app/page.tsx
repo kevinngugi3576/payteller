@@ -5,6 +5,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
+import { Faqs, featuresData, Plans, Testimonials } from "@/constants";
+import { BentoGrids } from "@/components/BentoGrid";
+import { Globe } from "@/components/Globe";
+import  { LogoCarouselPage } from "@/components/Companies";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
@@ -32,179 +36,101 @@ export default function LandingPage() {
       {loading ? (
         <Landing />
       ) : (
-        <div className="">
+        <div className="bg-white">
           {/* Header */}
-          <div className="relative">
+
+          <header className="fixed top-0 z-30 flex items-center w-full backdrop-blur-xl">
+            <div className="flex w-1/3 px-4 py-6">
+              <Image
+                src="/icons/logo.svg"
+                width={34}
+                height={34}
+                alt="log app"
+              />
+              <h1 className="px-2 text-2xl font-bold">Payteller</h1>
+            </div>
+            <div className="hidden w-1/2 md:block">
+              <nav className="space-x-4  font-bold rounded-full   text-xl  p-[8px]">
+                <Link href="#features" className=" hover:text-gray-800">
+                  Features
+                </Link>
+                <Link href="#pricing" className=" hover:text-gray-800">
+                  Pricing
+                </Link>
+                <Link href="#testimonials" className="">
+                  Testimonials
+                </Link>
+                <Link href="#faq" className=" hover:text-gray-800">
+                  FAQ
+                </Link>
+              </nav>
+            </div>
+
+            <div className="hidden ml-9 md:block ">
+              <button
+                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl"
+                onClick={handleLoginClick}
+              >
+                Sign in
+              </button>
+            </div>
+          </header>
+
+          <div className="relative mt-4 ">
             <video
-              width="2000"
-              height="2000"
               autoPlay
               muted
               loop
               preload="none"
-              className="absolute top-0 left-0 object-cover "
+              className="object-cover w-full min-h-screen"
             >
               <source src="/videos/landingPage2.mp4" type="video/mp4" />
             </video>
-            <header className="fixed z-30 flex items-center w-full backdrop-blur-xl">
-              <div className="flex w-1/3 px-4 py-6">
-                <Image
-                  src="/icons/logo.svg"
-                  width={34}
-                  height={34}
-                  alt="log app"
-                />
-                <h1 className="text-2xl font-bold">Payteller</h1>
-              </div>
-              <div className="w-1/2 ">
-                <nav className="space-x-4  font-bold rounded-full   text-xl  p-[8px]">
-                  <Link href="#features" className=" hover:text-gray-800">
-                    Features
-                  </Link>
-                  <Link href="#pricing" className=" hover:text-gray-800">
-                    Pricing
-                  </Link>
-                  <Link href="#testimonials" className="">
-                    Testimonials
-                  </Link>
-                  <Link href="#faq" className=" hover:text-gray-800">
-                    FAQ
-                  </Link>
-                </nav>
-              </div>
+          </div>
+          <section className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <h2 className="text-3xl font-bold lg:text-9xl :">
+              Welcome to Payteller
+            </h2>
+            <p className="py-2 mb-6 text-lg font-bold text-purple-600 lg:text-4xl">
+              The number one payment solution for your business
+            </p>
 
-              <div className="hidden ml-9 md:block ">
-                <button
-                  className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl"
-                  onClick={handleLoginClick}
-                >
-                  Sign in
-                </button>
-              </div>
-            </header>
-            I{/* Hero Section */}
+            <button
+              className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
+              onClick={handleGetStartedClick}
+            >
+              Get started here!
+            </button>
+          </section>
+
+          {/* Globe section  */}
+          <section className="mb-32 shadow-lg sahdow-zinc-950 ">
             <div className="">
-              <section className="relative z-20 mt-48  
-              ">
-                <div className="text-center  bg-gray-100  bg-transparent 	">
-                  <h2 className="mb-4 text-9xl text-white	 font-bold ">
-                    Welcome to Payteller
-                  </h2>
-                  <p className="mb-8 text-6xl text-purple-600 font-bold">
-                    The number one payment solution for your business
-                  </p>
-                  <button
-                    className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
-                    onClick={handleGetStartedClick}
-                  >
-                    Get started here!
-                  </button>
-                </div>
-              </section>
+              <Globe />
             </div>
+            <div className="">
+            <LogoCarouselPage />
           </div>
- 
+          </section>
+
+          
+
           {/* Features Section */}
-          <div className=" relative z-10 mt-96 py-16">
-            <section id="features" className=" ">
-              <div className="container mx-auto text-center">
-                <h2 className="mb-8 text-3xl font-bold">
-                  Why choose our service?
-                </h2>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                  {[
-                    {
-                      title: "Easy to use",
-                      description:
-                        "Id laborum laboris duis nostrud excepteur ut velit nulla magna Lorem proident non.",
-                    },
-                    {
-                      title: "Reliable",
-                      description:
-                        "Magna Lorem ex cillum fugiat ad enim aute irure sit duis minim.",
-                    },
-                    {
-                      title: "Secure",
-                      description:
-                        "Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.",
-                    },
-                    {
-                      title: "Fast",
-                      description:
-                        "Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod sint aliquip nisi voluptate.",
-                    },
-                    {
-                      title: "Affordable",
-                      description:
-                        "Reprehenderit fugiat elit in do ipsum ut pariatur.",
-                    },
-                    {
-                      title: "Scalable",
-                      description:
-                        "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
-                    },
-                  ].map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="p-6 bg-white rounded-lg shadow-lg"
-                    >
-                      <h3 className="mb-4 text-2xl font-bold">
-                        {feature.title}
-                      </h3>
-                      <p>{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
+          <section id="features" className="mb-16">
+            <div className="container mx-auto text-center">
+              <h2 className="text-4xl font-bold ">Why choose our service?</h2>
+              <div className="rounded-lg border-1 border-zinc-950">
+                <BentoGrids />
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
 
           {/* Pricing Section */}
-          <section id="pricing" className="py-20 bg-gray-200">
+          <section id="pricing" className="py-20 ">
             <div className="container mx-auto text-center">
               <h2 className="mb-8 text-3xl font-bold">A plan for every need</h2>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {[
-                  {
-                    title: "Basic",
-                    price: "$9.99",
-                    features: [
-                      "1 GB Storage",
-                      "1 Email Account",
-                      "1 Domain",
-                      "1 Website",
-                      "1 Database",
-                      "1 SSL Certificate",
-                      "1 Support Ticket",
-                    ],
-                  },
-                  {
-                    title: "Standard",
-                    price: "$19.99",
-                    features: [
-                      "10 GB Storage",
-                      "10 Email Accounts",
-                      "10 Domains",
-                      "10 Websites",
-                      "10 Databases",
-                      "10 SSL Certificates",
-                      "10 Support Tickets",
-                    ],
-                  },
-                  {
-                    title: "Premium",
-                    price: "$29.99",
-                    features: [
-                      "100 GB Storage",
-                      "100 Email Accounts",
-                      "100 Domains",
-                      "100 Websites",
-                      "100 Databases",
-                      "100 SSL Certificates",
-                      "100 Support Tickets",
-                    ],
-                  },
-                ].map((plan, idx) => (
+                {Plans.map((plan, idx) => (
                   <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
                     <h3 className="mb-4 text-2xl font-bold">{plan.title}</h3>
                     <p className="mb-4 text-xl font-bold">{plan.price}</p>
@@ -231,44 +157,7 @@ export default function LandingPage() {
                 What our customers are saying
               </h2>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {[
-                  {
-                    name: "Rose Roberson",
-                    feedback:
-                      "Proident sunt exercitation minim laborum enim laboris labore esse. Nostrud tempor sunt fugiat.",
-                    title: "CEO at Company",
-                  },
-                  {
-                    name: "Chace Rodgers",
-                    feedback:
-                      "Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.",
-                    title: "CEO at Company",
-                  },
-                  {
-                    name: "Cornelius Sheppard",
-                    feedback:
-                      "Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor.",
-                    title: "CEO at Company",
-                  },
-                  {
-                    name: "Destinee Woods",
-                    feedback:
-                      "Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore.",
-                    title: "CEO at Company",
-                  },
-                  {
-                    name: "Kaleb Mccormick",
-                    feedback:
-                      "Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.",
-                    title: "CEO at Company",
-                  },
-                  {
-                    name: "Jazmin Mccall",
-                    feedback:
-                      "Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt.",
-                    title: "CEO at Company",
-                  },
-                ].map((testimonial, idx) => (
+                {Testimonials.map((testimonial, idx) => (
                   <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
                     <p className="mb-4">{testimonial.feedback}</p>
                     <p className="font-bold">{testimonial.name}</p>
@@ -280,44 +169,13 @@ export default function LandingPage() {
           </section>
 
           {/* FAQ Section */}
-          <section id="faq" className="py-20 bg-gray-200">
+          <section id="faq" className="py-20 ">
             <div className="container mx-auto text-center">
               <h2 className="mb-8 text-3xl font-bold">
                 Frequently asked questions
               </h2>
               <div className="space-y-4">
-                {[
-                  {
-                    question: "Is this a secure service?",
-                    answer:
-                      "Qui sunt nostrud aliquip reprehenderit enim proident veniam magna aliquip velit occaecat eiusmod nisi deserunt sunt.",
-                  },
-                  {
-                    question: "How can I cancel my subscription?",
-                    answer:
-                      "Reprehenderit fugiat elit in do ipsum ut pariatur. Lorem deserunt et eiusmod.",
-                  },
-                  {
-                    question: "How does the free trial work?",
-                    answer:
-                      "Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.",
-                  },
-                  {
-                    question: "Can I switch plans later?",
-                    answer:
-                      "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
-                  },
-                  {
-                    question: "Do you offer refunds?",
-                    answer:
-                      "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
-                  },
-                  {
-                    question: "Do you offer support?",
-                    answer:
-                      "Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.",
-                  },
-                ].map((faq, idx) => (
+                {Faqs.map((faq, idx) => (
                   <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
                     <h3 className="mb-2 text-xl font-bold">{faq.question}</h3>
                     <p>{faq.answer}</p>
