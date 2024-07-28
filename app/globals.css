@@ -370,4 +370,24 @@
   }
 }
 
+/* styles/globals.css */
+
+/* styles/globals.css */
+
+/* styles/globals.css */
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 45s linear infinite;
+}
+
+
 
