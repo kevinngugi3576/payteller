@@ -162,7 +162,7 @@ export default function LandingPage() {
           </section>
 
           {/* FAQ Section */}
-          <section id="faq" className="py-20 ">
+          <section id="faq" className="py-20 shadow-2xl">
             <div className="container mx-auto text-center">
               <h2 className="mb-8 text-3xl font-bold">
                 Frequently asked questions
@@ -181,7 +181,7 @@ export default function LandingPage() {
           {/* Footer */}
           <footer className="py-10 text-white bg-gray-800">
             <div className="container mx-auto space-y-4 text-center">
-              <p>Made with Nuxt UI Pro</p>
+              <p>Payteller</p>
               <div className="space-x-4">
                 <a href="#features" className="hover:underline">
                   Features
@@ -206,7 +206,7 @@ export default function LandingPage() {
                   Subscribe
                 </button>
               </form>
-              <p>© 2023 Nuxt UI Pro. All rights reserved.</p>
+              <p>© 2024 All rights reserved.</p>
             </div>
           </footer>
         </div>
