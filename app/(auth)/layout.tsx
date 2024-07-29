@@ -40,7 +40,7 @@ export default function RootLayout({
       ) : (
         <main className="flex items-center" ref={childrenRef}>
           {children}
-          <div className="flex justify-center w-full mt-56 mb-16 rounded-lg max-xl:hidden border-1">
+          <div className="flex justify-center w-full mt-8 rounded-lg max-xl:hidden border-1">
             <div className="">
               <Image
                 src="/icons/sign-up-layout.png"
