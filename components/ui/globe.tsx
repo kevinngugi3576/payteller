@@ -96,7 +96,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       _buildData();
       _buildMaterial();
     }
-  }, [globeRef.current]);
+  },);
 
   const _buildMaterial = () => {
     if (!globeRef.current) return;
@@ -162,7 +162,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       startAnimation();
     }
-  }, [globeData]);
+  }, );
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
@@ -221,7 +221,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeRef.current, globeData]);
+  }, );
 
   return (
     <>
@@ -237,7 +237,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, );
 
   return null;
 }

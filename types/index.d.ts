@@ -75,9 +75,20 @@ declare type Bank = {
   fundingSourceUrl: string;
   userId: string;
   sharableId: string;
-  currentBalance?: number;
+  currentBalance: number;
   //added this property to match the Account type
 };
+
+declare type currentBalance = {
+  $id: string;
+  accountId: string;
+  bankId: string;
+  accessToken: string;
+  fundingSourceUrl: string;
+  userId: string;
+  sharableId: string;
+  currentBalance: number;
+}
 
 declare type Transaction = {
   id: string;
@@ -114,35 +125,10 @@ declare type CategoryCount = {
   totalCount: number;
 };
 
-declare type Receiver = {
-  firstName: string;
-  lastName: string;
-};
 
-declare type TransferParams = {
-  sourceFundingSourceUrl: string;
-  destinationFundingSourceUrl: string;
-  amount: string;
-};
 
-declare type AddFundingSourceParams = {
-  dwollaCustomerId: string;
-  processorToken: string;
-  bankName: string;
-};
 
-declare type NewDwollaCustomerParams = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  type: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
-};
+
 
 declare interface CreditCardProps {
   account: Account;
@@ -167,24 +153,9 @@ declare interface MobileNavProps {
   user: User;
 }
 
-declare interface PageHeaderProps {
-  topTitle: string;
-  bottomTitle: string;
-  topDescription: string;
-  bottomDescription: string;
-  connectBank?: boolean;
-}
 
-declare interface PaginationProps {
-  page: number;
-  totalPages: number;
-}
 
-declare interface PlaidLinkProps {
-  user: User;
-  variant?: "primary" | "ghost";
-  dwollaCustomerId?: string;
-}
+
 
 // declare type User = sdk.Models.Document & {
 //   accountId: string;
