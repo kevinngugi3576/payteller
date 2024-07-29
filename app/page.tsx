@@ -61,7 +61,7 @@ export default function LandingPage() {
               />
               <h1 className="px-2 text-2xl font-bold">Payteller</h1>
 
-              <div className="ml-64 md:hidden ">
+              <div className="md:hidden ml-80 ">
                 <Hamburger toggled={!isOpen} toggle={HandleHamburgerClick} />
               </div>
             </div>
