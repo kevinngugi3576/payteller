@@ -10,7 +10,7 @@ const MyBanks = () => {
     }, 1000);
 
     return () => clearTimeout(timer); // Clean up the timer
-  }, []);
+  }, );
 
 
     
