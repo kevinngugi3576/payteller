@@ -1,5 +1,34 @@
 import type { Config } from "tailwindcss";
 
+const svgToDataUri = require("mini-svg-data-uri");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
+const addVariablesForColors = ({ addBase, theme }: any) => {
+  const colors = theme("colors");
+  const cssVariables: { [key: string]: string } = Object.keys(colors).reduce(
+    (acc, color) => {
+      const value = colors[color];
+      if (typeof value === "string") {
+        acc[`--color-${color}`] = value;
+      } else {
+        Object.keys(value).forEach((shade) => {
+          acc[`--color-${color}-${shade}`] = value[shade];
+        });
+      }
+      return acc;
+    },
+    {} as { [key: string]: string }
+  );
+
+  addBase({
+    ":root": {
+      ...cssVariables,
+    },
+  });
+};
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -9,6 +38,7 @@ const config = {
     "./src/**/*.{ts,tsx}",
     "./constants/**/*.{ts,tsx}",
   ],
+
   prefix: "",
   theme: {
     container: {
@@ -103,7 +133,22 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    addVariablesForColors,
+    function ({ matchUtilities, theme }: any) {
+      matchUtilities(
+        {
+          "bg-dot-thick": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+      );
+    },
+  ],
 } satisfies Config;
 
 export default config;

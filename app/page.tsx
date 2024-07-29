@@ -10,9 +10,12 @@ import { BentoGrids } from "@/components/BentoGrid";
 import { Globe } from "@/components/Globe";
 import { LogoCarouselPage } from "@/components/Companies";
 import { TestimonialsGrid } from "@/components/TestimonialsGrid";
+import Hamburger from "hamburger-react";
+import { HeroHighlights } from "@/components/HeroHighlight";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
+  const [isOpen, setOpen] = useState(true);
 
   const router = useRouter();
 
@@ -22,6 +25,14 @@ export default function LandingPage() {
 
   const handleGetStartedClick = () => {
     router.push("/sign-up");
+  };
+
+  const HandleHamburgerClick = () => {
+    setOpen(!isOpen);
+  };
+
+  const HandleLinkClick = () => {
+    setOpen(!isOpen); // Close the menu when a link is clicked
   };
 
   useEffect(() => {
@@ -41,7 +52,7 @@ export default function LandingPage() {
           {/* Header */}
 
           <header className="fixed top-0 z-30 flex items-center w-full backdrop-blur-xl">
-            <div className="flex w-1/3 px-4 py-6">
+            <div className="flex w-1/3 px-4 py-6 ">
               <Image
                 src="/icons/logo.svg"
                 width={34}
@@ -49,27 +60,41 @@ export default function LandingPage() {
                 alt="log app"
               />
               <h1 className="px-2 text-2xl font-bold">Payteller</h1>
+
+              <div className="ml-64 md:hidden ">
+                <Hamburger toggled={!isOpen} toggle={HandleHamburgerClick} />
+              </div>
             </div>
-            <div className="hidden w-1/2 md:block">
+            <div className={` hidden md:w-1/2 md:block`}>
               <nav className="space-x-4  font-bold rounded-full   text-xl  p-[8px]">
-                <Link href="#features" className=" hover:text-gray-800">
+                {/* <div className="flex flex-col h-screen "> */}
+                <Link
+                  href="#features"
+                  className=" hover:text-gray-800"
+                  // onClick={HandleLinkClick}
+                >
                   Features
                 </Link>
-                <Link href="#pricing" className=" hover:text-gray-800">
-                  Pricing
-                </Link>
-                <Link href="#testimonials" className="">
+                <Link
+                  href="#testimonials"
+                  className=""
+                  // onClick={HandleLinkClick}
+                >
                   Testimonials
                 </Link>
-                <Link href="#faq" className=" hover:text-gray-800">
+                <Link
+                  href="#faq"
+                  className=" hover:text-gray-800"
+                  // onClick={HandleLinkClick}
+                >
                   FAQ
                 </Link>
               </nav>
             </div>
 
-            <div className="hidden ml-9 md:block ">
+            <div className="hidden lg:flex ml-9 md:block">
               <button
-                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl"
+                className="bg-blue-700 md:p-[12px] p-[2px] rounded-lg text-white text-xl"
                 onClick={handleLoginClick}
               >
                 Sign in
@@ -88,31 +113,73 @@ export default function LandingPage() {
               <source src="/videos/landingPage2.mp4" type="video/mp4" />
             </video>
           </div>
-          <section className="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h2 className="text-3xl font-bold lg:text-9xl :">
-              Welcome to Payteller
-            </h2>
-            <p className="py-2 mb-6 text-lg font-bold text-purple-600 lg:text-4xl">
-              The number one payment solution for your business
-            </p>
 
-            <button
-              className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
-              onClick={handleGetStartedClick}
-            >
-              Get started here!
-            </button>
-          </section>
+          {!isOpen && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center h-full md:hidden">
+              <nav className="space-x-4  font-bold rounded-full   text-xl  p-[8px]">
+                {/* <div className="flex flex-col h-screen "> */}
+                <Link
+                  href="#features"
+                  className=" hover:text-gray-800"
+                  onClick={HandleLinkClick}
+                >
+                  Features
+                </Link>
+                <Link
+                  href="#testimonials"
+                  className=""
+                  onClick={HandleLinkClick}
+                >
+                  Testimonials
+                </Link>
+                <Link
+                  href="#faq"
+                  className=" hover:text-gray-800"
+                  onClick={HandleLinkClick}
+                >
+                  FAQ
+                </Link>
+              </nav>
+              <div className="">
+                <button
+                  className="bg-blue-700 md:p-[12px] p-[8px] block rounded-lg text-white text-xl"
+                  onClick={handleLoginClick}
+                >
+                  Sign in
+                </button>
+              </div>
+            </div>
+          )}
+
+          {isOpen ? (
+            <section className="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <h2 className="text-3xl font-bold lg:text-9xl :">
+                <HeroHighlights />{" "}
+              </h2>
+              <p className="py-2 mb-6 text-lg font-bold text-purple-600 lg:text-4xl">
+                The number one payment solution for your business
+              </p>
+
+              <button
+                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
+                onClick={handleGetStartedClick}
+              >
+                Get started here!
+              </button>
+            </section>
+          ) : (
+            ""
+          )}
 
           {/* Globe section  */}
-          <section className="mb-32 shadow-lg sahdow-zinc-950 ">
+          <section className="mb-32 shadow-xl ">
             <div className="">
               <Globe />
             </div>
-            <div className="">
-              <LogoCarouselPage />
-            </div>
           </section>
+          <div className="">
+            <LogoCarouselPage />
+          </div>
 
           {/* Features Section */}
           <section id="features" className="mb-16">
@@ -124,33 +191,9 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {/* Pricing Section */}
-          <section id="pricing" className="py-20 ">
-            <div className="container mx-auto text-center">
-              <h2 className="mb-8 text-3xl font-bold">A plan for every need</h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {Plans.map((plan, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-lg shadow-lg">
-                    <h3 className="mb-4 text-2xl font-bold">{plan.title}</h3>
-                    <p className="mb-4 text-xl font-bold">{plan.price}</p>
-                    <ul className="mb-6">
-                      {plan.features.map((feature, index) => (
-                        <li key={index} className="mb-2">
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <button className="px-8 py-3 text-white bg-blue-600 rounded hover:bg-blue-700">
-                      Get Started
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
           {/* 
           {/* Testimonials Section */}
-          <section id="testimonials" className="py-20">
+          <section id="testimonials" className=" md:py-20">
             <div className="container mx-auto text-center">
               <h2 className="mb-8 text-3xl font-bold">
                 What our customers are saying
