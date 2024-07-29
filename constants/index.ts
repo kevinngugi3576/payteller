@@ -1,7 +1,7 @@
 export const sidebarLinks = [
   {
     imgURL: "/icons/home.svg",
-    route: "/",
+    route: "/dashboard",
     label: "Home",
   },
   {
@@ -259,5 +259,146 @@ export const transactions: Transaction[] = [
     senderBankId: "KCB004",
     receiverBankId: "KCB005",
     curency: "KES",
+  },
+];
+
+export const featuresData = [
+  {
+    title: "Easy to use",
+    description: "Our user-friendly interface is designed with you in mind.",
+  },
+  {
+    title: "Reliable",
+    description:
+      "With PayTeller, you can count on uninterrupted access to your accounts and transactions .",
+  },
+  {
+    title: "Secure",
+    description:
+      "Reliability is at the heart of everything we do. With PayTeller, you can count on uninterrupted access to your accounts and transactions",
+  },
+  {
+    title: "Fast",
+    description:
+      " PayTeller offers quick and seamless transactions, ensuring that your financial operations are completed swiftly.",
+  },
+  {
+    title: "Affordable",
+    description:
+      "PayTeller offers competitive pricing structures that cater to a wide range of needs and budgets. ",
+  },
+  {
+    title: "Scalable",
+    description:
+      "PayTeller evolves with you. Our scalable solutions are designed to grow alongside you, whether you’re a small business or a large enterprise.",
+  },
+];
+export const Plans = [
+  {
+    title: "Basic",
+    price: "$9.99",
+    features: [
+      "1 GB Storage",
+      "1 Email Account",
+      "1 Domain",
+      "1 Website",
+      "1 Database",
+      "1 SSL Certificate",
+      "1 Support Ticket",
+    ],
+  },
+  {
+    title: "Standard",
+    price: "$19.99",
+    features: [
+      "10 GB Storage",
+      "10 Email Accounts",
+      "10 Domains",
+      "10 Websites",
+      "10 Databases",
+      "10 SSL Certificates",
+      "10 Support Tickets",
+    ],
+  },
+  {
+    title: "Premium",
+    price: "$29.99",
+    features: [
+      "100 GB Storage",
+      "100 Email Accounts",
+      "100 Domains",
+      "100 Websites",
+      "100 Databases",
+      "100 SSL Certificates",
+      "100 Support Tickets",
+    ],
+  },
+];
+
+export const Testimonials = [
+  {
+    name: "Rose Roberson",
+    feedback:
+      "Proident sunt exercitation minim laborum enim laboris labore esse. Nostrud tempor sunt fugiat.",
+    title: "CEO at Company",
+  },
+  {
+    name: "Chace Rodgers",
+    feedback:
+      "Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.",
+    title: "CEO at Company",
+  },
+  {
+    name: "Cornelius Sheppard",
+    feedback:
+      "Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor.",
+    title: "CEO at Company",
+  },
+  {
+    name: "Destinee Woods",
+    feedback:
+      "Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore.",
+    title: "CEO at Company",
+  },
+  {
+    name: "Kaleb Mccormick",
+    feedback:
+      "Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.",
+    title: "CEO at Company",
+  },
+  {
+    name: "Jazmin Mccall",
+    feedback:
+      "Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt.",
+    title: "CEO at Company",
+  },
+];
+
+export const Faqs = [
+  {
+    question: "Is this a secure service?",
+    answer:
+      "Yes, PayTeller is a highly secure online banking system. The platform utilizes advanced encryption protocols and multi-factor authentication to protect your financial information.",
+  },
+  {
+    question: "How can I cancel my payments?",
+    answer:
+      "Cancelling your PayTeller subscription is straightforward. You can do this by logging into your account and navigating to the payments management section. There, you'll find an option to cancel your payments",
+  },
+  {
+    question: "How does the free trial work?",
+    answer:
+      "PayTeller offers a free to all, to allow you to explore the features of the platform before committing to a transaction. ",
+  },
+
+  {
+    question: "Do you offer refunds?",
+    answer:
+      "PayTeller has a refund policy that typically applies under specific circumstances. If you are not satisfied with the service or encounter issues, you can request a refund according to their policy.",
+  },
+  {
+    question: "Do you offer support?",
+    answer:
+      "Yes, PayTeller offers comprehensive customer support. The support team is available to assist with any questions or issues you may encounter.",
   },
 ];
