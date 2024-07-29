@@ -11,7 +11,7 @@ const PaymentTransfer = () => {
     }, 1000);
 
     return () => clearTimeout(timer); // Clean up the timer
-  }, [loading]);
+  },);
 
   return (
     <Suspense fallback={<Landing />}>
