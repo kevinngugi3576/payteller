@@ -4,7 +4,7 @@ import React from "react";
 import RightSidebar from "@/components/RightSidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
-import { transactions } from "@/constants";
+import { dummyBanks, transactions } from "@/constants";
 
 const Home = async () => {
   const loggedIn = await getLoggedInUser();
@@ -33,7 +33,7 @@ const Home = async () => {
       <RightSidebar
         user={loggedIn}
         transactions={[]}
-        banks={[{ currentBalance: 350000 }, { currentBalance: 434000 }]}
+        banks={dummyBanks}
       />
     </section>
   );

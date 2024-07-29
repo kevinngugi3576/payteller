@@ -29,18 +29,46 @@ const AuthForm = ({ type }: { type: string }) => {
 
     try {
       if (type === "sign-up") {
+        const {
+          email,
+          password,
+          firstname,
+          lastname,
+          address1,
+          city,
+          state,
+          postalCode,
+          DateOfBirth,
+        } = data;
+        if (
+          !email ||
+          !password ||
+          !firstname ||
+          !lastname ||
+          !address1 ||
+          !city ||
+          !state ||
+          !postalCode ||
+          !DateOfBirth
+        ) {
+          throw new Error("Missing required fields");
+        }
         const newUser = await SignUp({
-          email: data.email,
-          password: data.password,
-          firstName: data.firstname,
-          lastName: data.lastname,
+          email,
+          password,
+          firstName: firstname,
+          lastName: lastname,
+          address1,
+          city,
+          state,
+          postalCode,
+          DateOfBirth,
         });
 
         if (newUser) {
           // Redirect to the homepage on successful sign-up
           router.push("/dashboard");
         }
-       
       }
 
       if (type === "sign-in") {
