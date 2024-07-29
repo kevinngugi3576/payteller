@@ -67,7 +67,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
         if (newUser) {
           // Redirect to the homepage on successful sign-up
-          router.push("/dashboard");
+          router.push("/Home");
         }
       }
 
@@ -83,7 +83,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
           if (response) {
             // Redirect to the homepage on successful sign-in
-            router.push("/dashboard");
+            router.push("/Home");
           } else {
             // Handle sign-in failure (e.g., show an error message)
             console.error("Sign-in failed");

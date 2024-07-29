@@ -14,12 +14,12 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
         <div className="profile-banner " />
         <div className="mt-12 profile-img">
           <span className="text-5xl font-bold text-blue-500 ">
-            {user.name[0]}
+            {user?.name[0]}
           </span>
         </div>
         <div className="mt-8 profile-details">
-          <h1 className="ml-8 text-4xl font-bold">{user.name} </h1>
-          <p className="ml-8 profile-email">{user.email}</p>
+          <h1 className="ml-8 text-4xl font-bold">{user?.name} </h1>
+          <p className="ml-8 profile-email">{user?.email}</p>
         </div>
       </section>
       <section className="banks">
@@ -41,7 +41,7 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.name}`}
+                userName={`${user?.name}`}
                 showBalance={false}
               />
             </div>
@@ -50,7 +50,7 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
                 <BankCard
                   key={banks[1].$id}
                   account={banks[1]}
-                  userName={`${user.name}`}
+                  userName={`${user?.name}`}
                   showBalance={false}
                 />{" "}
               </div>

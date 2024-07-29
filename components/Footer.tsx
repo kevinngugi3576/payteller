@@ -11,7 +11,7 @@ const Footer = ({ user, type }: FooterProps) => {
     try {
       const success = await LogoutAccount();
       if (success) {
-        router.push("/");
+        router.push("/sign-in");
       } else {
         console.error("Logout failed");
         // Optionally, show a notification or alert to the user
@@ -31,9 +31,9 @@ const Footer = ({ user, type }: FooterProps) => {
         className={`${type === "mobile" ? "footer_email_mobile" : "footer_email"} mt-10`}
       >
         <h1 className="font-bold text-gray-800 truncate text-14">
-          {user.name}
+          {user?.name}
         </h1>
-        <p className="font-bold text-gray-600 truncate text-14">{user.email}</p>
+        <p className="font-bold text-gray-600 truncate text-14">{user?.email}</p>
       </div>
       <div className="mt-8 ml-8" onClick={HandleLogOut}>
         <Image src="/icons/logout2.png " alt="logout"  width={34} height={34} className="rounded-full"  />

@@ -1,14 +1,26 @@
-import TransactionsTable from "@/components/TransactionsTable";
-import React from "react";
-import { transactions } from "@/constants";
+// import TransactionsTable from "@/components/TransactionsTable";
+// import React from "react";
+// import { transactions } from "@/constants";
 
-const TransactionHistory = () => {
+// const TransactionHistory = () => {
+//   return (
+//     <div className="h-screen">
+//       Recent transactions
+//       <TransactionsTable transactions={transactions} />
+//     </div>
+//   );
+// };
+
+// export default TransactionHistory;
+
+
+
+import React from 'react'
+
+const page = () => {
   return (
-    <div className="h-screen">
-      Recent transactions
-      <TransactionsTable transactions={transactions} />
-    </div>
-  );
-};
+    <div>page</div>
+  )
+}
 
-export default TransactionHistory;
+export default page
