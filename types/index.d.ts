@@ -16,7 +16,7 @@ declare type SignUpParams = {
   city: string;
   state: string;
   postalCode: string;
-  dateOfBirth: string;
+  DateOfBirth: string;
 };
 
 declare type LoginUser = {
@@ -88,7 +88,7 @@ declare type currentBalance = {
   userId: string;
   sharableId: string;
   currentBalance: number;
-}
+};
 
 declare type Transaction = {
   id: string;
@@ -125,11 +125,6 @@ declare type CategoryCount = {
   totalCount: number;
 };
 
-
-
-
-
-
 declare interface CreditCardProps {
   account: Account;
   userName: string;
@@ -152,10 +147,6 @@ declare interface HeaderBoxProps {
 declare interface MobileNavProps {
   user: User;
 }
-
-
-
-
 
 // declare type User = sdk.Models.Document & {
 //   accountId: string;
@@ -197,6 +188,11 @@ declare interface RightSidebarProps {
   transactions: Transaction[];
   banks: Bank[] & Account[];
 }
+
+declare type BankAccount = Bank & Account;
+
+
+
 
 declare interface SiderbarProps {
   user: User;
