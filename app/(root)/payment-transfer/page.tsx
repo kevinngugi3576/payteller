@@ -1,9 +1,23 @@
-import React from 'react'
+"use client"
+import Landing from "@/components/Landing";
+import React, { Suspense, useEffect, useState } from "react";
 
 const PaymentTransfer = () => {
-  return (
-    <div>payment Transfer</div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default PaymentTransfer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(loading);
+    }, 1000);
+
+    return () => clearTimeout(timer); // Clean up the timer
+  }, []);
+
+  return (
+    <Suspense fallback={<Landing />}>
+      {loading ? <Landing /> : <Landing />}
+    </Suspense>
+  );
+};
+
+export default PaymentTransfer;

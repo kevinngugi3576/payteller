@@ -18,14 +18,14 @@ const RightSidebar = ({ user, banks }: RightSidebarProps) => {
           </span>
         </div>
         <div className="mt-8 profile-details">
-          <h1 className="ml-8 text-4xl  font-bold">{user.name} </h1>
+          <h1 className="ml-8 text-4xl font-bold">{user.name} </h1>
           <p className="ml-8 profile-email">{user.email}</p>
         </div>
       </section>
       <section className="banks">
         <div className="flex justify-between w-full ">
           <h2 className="header-2">My Banks</h2>
-          <Link href="/" className="flex gap-2">
+          <Link href="/my-banks" className="flex gap-2">
             <Image
               src="/icons/plus.svg"
               width={20}

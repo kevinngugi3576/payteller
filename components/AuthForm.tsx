@@ -40,6 +40,7 @@ const AuthForm = ({ type }: { type: string }) => {
           // Redirect to the homepage on successful sign-up
           router.push("/dashboard");
         }
+       
       }
 
       if (type === "sign-in") {
