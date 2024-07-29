@@ -107,7 +107,7 @@
   }
 
   .home-content {
-    @apply flex flex-col flex-1 w-full gap-8 px-5 no-scrollbar sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    @apply flex flex-col flex-1 w-full gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {

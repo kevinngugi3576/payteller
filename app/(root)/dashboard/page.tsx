@@ -24,10 +24,17 @@ const Home = async () => {
             totalCurrentBalance={655544.0}
           />
         </header>
-        Recent transactions
-        <TransactionsTable transactions={transactions} />
+        <div className="">
+          Recent transactions
+          <TransactionsTable transactions={transactions} />
+        </div>
       </div>
-      <RightSidebar user={loggedIn} transactions={[]} banks={[{currentBalance: 350000}, {currentBalance:434000}]} />
+
+      <RightSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ currentBalance: 350000 }, { currentBalance: 434000 }]}
+      />
     </section>
   );
 };
