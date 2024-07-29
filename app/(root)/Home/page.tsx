@@ -15,7 +15,7 @@ const Home = async () => {
           <HeaderBox
             type="greeting"
             title="WELCOME"
-            user={loggedIn ? loggedIn.name.toUpperCase() : "GUEST"}
+            user={loggedIn ? loggedIn?.name?.toUpperCase() : "GUEST"}
             subtext="Access and manage your account efficiently"
           />
           <TotalBalanceBox
