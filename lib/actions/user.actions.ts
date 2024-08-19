@@ -59,15 +59,18 @@ export const SignUp = async (userData: SignUpParams) => {
 
 // ... your initilization functions
 
+
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
     const user = await account.get();
-    return parseStringify(user);
+    return parseStringify(user); 
   } catch (error) {
-    return null;
+    console.error("Error fetching logged-in user:", error);
+    return "The user cannot be found"; // Return null or an appropriate error response
   }
 }
+
 
 export const LogoutAccount = async () => {
   try {

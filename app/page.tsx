@@ -12,6 +12,7 @@ import { LogoCarouselPage } from "@/components/Companies";
 import { TestimonialsGrid } from "@/components/TestimonialsGrid";
 import Hamburger from "hamburger-react";
 import { HeroHighlights } from "@/components/HeroHighlight";
+import Loading from "./loading";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <Suspense fallback={<Landing />}>
+    <Suspense fallback={<Loading />}>
       {loading ? (
         <Landing />
       ) : (
@@ -152,16 +153,16 @@ export default function LandingPage() {
           )}
 
           {isOpen ? (
-            <section className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <section className="absolute inset-0 flex flex-col items-center justify-center text-center rounded-full ">
               <h2 className="text-3xl font-bold lg:text-9xl :">
                 <HeroHighlights />{" "}
               </h2>
-              <p className="py-2 mb-6 text-lg font-bold text-purple-600 lg:text-4xl">
+              <p className="py-2 mb-6 text-lg font-bold text-purple-700 lg:text-5xl">
                 The number one payment solution for your business
               </p>
 
               <button
-                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl backdrop-blur-xl"
+                className="bg-blue-700 p-[12px] px-8 rounded-lg text-white text-xl "
                 onClick={handleGetStartedClick}
               >
                 Get started here!

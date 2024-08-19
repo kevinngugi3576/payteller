@@ -1,33 +1,24 @@
-// "use client";
-// import Landing from "@/components/Landing";
-// import React, { Suspense, useEffect, useState } from "react";
+"use client";
+import Landing from "@/components/Landing";
+import React, { Suspense, useEffect, useState } from "react";
 
-// const PaymentTransfer = () => {
-//   const [loading, setLoading] = useState(true);
+const PaymentTransfer = () => {
+  const [loading, setLoading] = useState(true);
 
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       setLoading(false); // Update the state to false to simulate loading completion
-//     }, 1000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Update the state to false to simulate loading completion
+    }, 1000);
 
-//     return () => clearTimeout(timer); // Clean up the timer
-//   }, []); // Empty dependency array ensures the effect runs once on mount
+    return () => clearTimeout(timer); // Clean up the timer
+  }, []); // Empty dependency array ensures the effect runs once on mount
 
-//   return (
-//     <Suspense fallback={<Landing />}>
-//       {loading ? <Landing /> : <div>Your Payment Transfer Content Here</div>}
-//     </Suspense>
-//   );
-// };
-
-// export default PaymentTransfer;
-
-import React from 'react'
-
-const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <Suspense fallback={<Landing />}>
+      <Landing /> 
+    </Suspense>
+  );
+};
 
-export default page
+export default PaymentTransfer;
+

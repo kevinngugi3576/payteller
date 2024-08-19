@@ -6,7 +6,8 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
 import { dummyBanks, transactions } from "@/constants";
 
-const Home = async () => {
+const Home = async () => { 
+
   const loggedIn = await getLoggedInUser();
   return (
     <section className="home">
