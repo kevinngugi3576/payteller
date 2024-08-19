@@ -295,9 +295,7 @@ declare interface getBanksProps {
   userId: string;
 }
 
-declare interface getBankProps {
-  documentId: string;
-}
+
 
 declare interface getBankByAccountIdProps {
   accountId: string;
