@@ -443,3 +443,5 @@ export const dummyBanks: BankAccount[] = [
     appwriteItemId: "item2",
   }
 ];
+
+const checker = []
