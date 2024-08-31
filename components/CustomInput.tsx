@@ -17,10 +17,11 @@ type CustomInputProps = {
   name: FieldPath<z.infer<typeof formSchema>>;
   label: string;
   placeholder: string;
-  id:"string"
+  id:string
+  autocomplete: string;
 };
 
-const CustomInput = ({ control, name, label, placeholder, id }: CustomInputProps) => {
+const CustomInput = ({ control, name, label, placeholder, id, autocomplete }: CustomInputProps) => {
 
   return (
     <FormField

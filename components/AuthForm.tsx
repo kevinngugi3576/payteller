@@ -168,6 +168,7 @@ const AuthForm = ({ type }: { type: string }) => {
                 label="Date Of Birth"
                 id="DateOfBirth"
                 placeholder="YYYY-MM-DD"
+                autocomplete="bday"
               />
             </>
           )}
@@ -178,6 +179,7 @@ const AuthForm = ({ type }: { type: string }) => {
             label="Email"
             placeholder="Enter your Email"
             id="email"
+            autocomplete="email"
           />
           <CustomInput
             control={form.control}
@@ -185,6 +187,7 @@ const AuthForm = ({ type }: { type: string }) => {
             label="Password"
             placeholder="Enter your Password"
             id="password"
+            autocomplete="new-password"
           />
 
           <div className="flex flex-col gap-4">
@@ -225,19 +228,5 @@ const AuthForm = ({ type }: { type: string }) => {
   );
 };
 
-export default AuthForm;
-            ? "Don't have an account?"
-            : "Already have an account?"}
-        </p>
-        <Link
-          href={type === "sign-in" ? "/sign-up" : "/sign-in"}
-          className="form-link"
-        >
-          {type === "sign-in" ? "Sign-up" : "Sign-in"}
-        </Link>
-      </footer>
-    </section>
-  );
-};
 
 export default AuthForm;
