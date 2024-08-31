@@ -29,6 +29,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
     try {
       if (type === "sign-up") {
+        
         const {
           email,
           password,
@@ -56,13 +57,9 @@ const AuthForm = ({ type }: { type: string }) => {
         const newUser = await SignUp({
           email,
           password,
-          firstName: firstname,
-          lastName: lastname,
-          address1,
-          city,
-          state,
-          postalCode,
-          DateOfBirth,
+          firstname: firstname,
+          lastname: lastname,
+          
         });
 
         if (newUser) {
@@ -97,6 +94,7 @@ const AuthForm = ({ type }: { type: string }) => {
       console.error("Error during form submission:", error);
     } finally {
       setIsLoading(false);
+      console.log(data)
     }
   };
 

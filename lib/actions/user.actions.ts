@@ -25,7 +25,7 @@ export const SignIn = async ({ email, password }: signInProps) => {
 };
 
 export const SignUp = async (userData: SignUpParams) => {
-  const { email, password, firstName, lastName } = userData;
+  const { email, password, firstname, lastname } = userData;
   try {
     const { account } = await createAdminClient();
 
@@ -33,7 +33,7 @@ export const SignUp = async (userData: SignUpParams) => {
       ID.unique(),
       email,
       password,
-      `${firstName} ${lastName}`
+      `${firstname} ${lastname}`
     );
     const session = await account.createEmailPasswordSession(email, password);
 
@@ -43,14 +43,9 @@ export const SignUp = async (userData: SignUpParams) => {
       sameSite: "strict",
       secure: true,
     });
-    const userWithFullName = {
-      ...newUserAccount,
-      name: `${firstName} ${lastName}`,
-      firstName,
-      lastName,
-    };
+  
 
-    return parseStringify(userWithFullName);
+    return parseStringify(newUserAccount);
   } catch (error) {
     console.log("Error during form submission:", error);
     return null; // Return null or an appropriate value in case of an error
