@@ -94,7 +94,6 @@ const AuthForm = ({ type }: { type: string }) => {
       console.error("Error during form submission:", error);
     } finally {
       setIsLoading(false);
-      console.log(data)
     }
   };
 
@@ -109,52 +108,65 @@ const AuthForm = ({ type }: { type: string }) => {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {type === "sign-up" && (
-            <>
-              <div className="flex gap-4">
-                <CustomInput
-                  control={form.control}
-                  name="firstname"
-                  label="FirstName"
-                  placeholder="Enter your firstName"
-                />
-                <CustomInput
-                  control={form.control}
-                  name="lastname"
-                  label="LastName"
-                  placeholder="Enter your lastName"
-                />
-              </div>
-              <CustomInput
-                control={form.control}
-                name="city"
-                label="City"
-                placeholder="Enter your city"
-              />
-              <CustomInput
-                control={form.control}
-                name="address1"
-                label="Address1"
-                placeholder="Enter your address"
-              />
-              <div className="flex gap-4">
-                <CustomInput
-                  control={form.control}
-                  name="state"
-                  label="State"
-                  placeholder="State"
-                />
-                <CustomInput
-                  control={form.control}
-                  name="postalCode"
-                  label="PostalCode"
-                  placeholder="Example 20100"
-                />
-              </div>
+        {type === "sign-up" && (
+  <>
+    <div className="flex gap-4">
+      <CustomInput
+        control={form.control}
+        name="firstname"
+        label="FirstName"
+        placeholder="Enter your firstName"
+        id="firstname"
+        autocomplete="given-name"
+      />
+      <CustomInput
+        control={form.control}
+        name="lastname"
+        label="LastName"
+        placeholder="Enter your lastName"
+        id="lastname"
+        autocomplete="family-name"
+      />
+    </div>
+    <CustomInput
+      control={form.control}
+      name="city"
+      label="City"
+      placeholder="Enter your city"
+      id="city"
+      autocomplete="address-level2"
+    />
+    <CustomInput
+      control={form.control}
+      name="address1"
+      label="Address1"
+      placeholder="Enter your address"
+      id="address1"
+      autocomplete="street-address"
+    />
+    <div className="flex gap-4">
+      <CustomInput
+        control={form.control}
+        name="state"
+        label="State"
+        placeholder="State"
+        id="state"
+        autocomplete="address-level1"
+      />
+      <CustomInput
+        control={form.control}
+        name="postalCode"
+        label="PostalCode"
+        placeholder="Example 20100"
+        id="postalCode"
+        autocomplete="postal-code"
+      />
+    </div>
               <CustomInput
                 control={form.control}
                 name="DateOfBirth"
                 label="Date Of Birth"
+                id="DateOfBirth"
                 placeholder="YYYY-MM-DD"
               />
             </>
@@ -165,12 +177,14 @@ const AuthForm = ({ type }: { type: string }) => {
             name="email"
             label="Email"
             placeholder="Enter your Email"
+            id="email"
           />
           <CustomInput
             control={form.control}
             name="password"
             label="Password"
             placeholder="Enter your Password"
+            id="password"
           />
 
           <div className="flex flex-col gap-4">
@@ -197,6 +211,21 @@ const AuthForm = ({ type }: { type: string }) => {
       <footer className="flex justify-center gap-1">
         <p className="font-normal text-gray-600 text-14">
           {type === "sign-in"
+            ? "Don't have an account?"
+            : "Already have an account?"}
+        </p>
+        <Link
+          href={type === "sign-in" ? "/sign-up" : "/sign-in"}
+          className="form-link"
+        >
+          {type === "sign-in" ? "Sign-up" : "Sign-in"}
+        </Link>
+      </footer>
+    </section>
+  );
+};
+
+export default AuthForm;
             ? "Don't have an account?"
             : "Already have an account?"}
         </p>

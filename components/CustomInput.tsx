@@ -17,17 +17,18 @@ type CustomInputProps = {
   name: FieldPath<z.infer<typeof formSchema>>;
   label: string;
   placeholder: string;
+  id:"string"
 };
 
-const CustomInput = ({ control, name, label, placeholder }: CustomInputProps) => {
+const CustomInput = ({ control, name, label, placeholder, id }: CustomInputProps) => {
 
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <div className="form-item">
-          <FormLabel  className="form-label">
+        <div className="form-item" >
+          <FormLabel  className="form-label" id={id}>
             {label}
           </FormLabel>
           <div className="flex flex-col w-full">
