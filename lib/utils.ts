@@ -192,7 +192,7 @@ export const authFormSchema = (type: string) =>
 
     address1:
       type === "sign-up"
-        ? z.string().max(50, "Address cannot exceed 10 characters.")
+        ? z.string().max(10, "Address cannot exceed 10 characters.")
         : z.string().optional(),
 
     state:
