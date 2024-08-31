@@ -10,7 +10,11 @@ export const SignIn = async ({ email, password }: signInProps) => {
     const { account } = await createAdminClient();
     const response = await account.createEmailPasswordSession(email, password);
     
-    cookies().set("appwrite-session", response.secret, {
+    // Get the cookies instance outside of any async operation
+    const cookieStore = cookies();
+    
+    // Set the cookie immediately
+    cookieStore.set("appwrite-session", response.secret, {
       path: "/",
       httpOnly: true,
       sameSite: "strict",
@@ -37,13 +41,16 @@ export const SignUp = async (userData: SignUpParams) => {
     );
     const session = await account.createEmailPasswordSession(email, password);
 
-    cookies().set("appwrite-session", session.secret, {
+    // Get the cookies instance outside of any async operation
+    const cookieStore = cookies();
+    
+    // Set the cookie immediately
+    cookieStore.set("appwrite-session", session.secret, {
       path: "/",
       httpOnly: true,
       sameSite: "strict",
       secure: true,
     });
-  
 
     return parseStringify(newUserAccount);
   } catch (error) {
